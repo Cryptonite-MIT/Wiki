@@ -1,16 +1,22 @@
 # Project information
-site_name: REPO_NAME_OR_SITE_NAME
+site_name: Cryptonite Wiki
 # defeine TOC or order of website-
 nav:
   - Home: index.md
+  - Basics: basics.md
+  - Cryptography: crypto.md
+  - Forensics: forensics.md
+  - Web: web.md
+  - Attack Defense: attackDefense.md
+  - Binary Exploitation: binexp.md
 
-site_author: Sunny Bhaveen Chandra
+site_author: Daksh Dadhania
 site_description: >-
-  DESCRIPTION
+  Wiki site for cryptonite
 
 # Repository
-repo_name: c17hawke/REPO_NAME
-repo_url: https://github.com/c17hawke/REPO_NAME
+#repo_name: Cryptonite-MIT
+#repo_url: https://github.com/Cryptonite-MIT
 
 # Configuration
 theme:
@@ -24,7 +30,7 @@ theme:
   palette:
     - scheme: default
       toggle:
-        icon: material/toggle-switch-off-outline 
+        icon: material/toggle-switch-off-outline
         name: Switch to dark mode
       primary: teal
       accent: purple 
@@ -32,24 +38,25 @@ theme:
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode    
-      primary: teal
+      primary:  teal
       accent: lime    
-  # logo: PyTorch_logo_icon.svg
-  
+  logo:   https://cryptonitemit.com/img/favicon.jpg
+  extra:
+    homepage: https://cryptonitemit.com/
+  favicon: https://cryptonitemit.com/img/favicon.jpg
 extra:
   social:
     - icon: fontawesome/brands/github-alt
-      link: https://github.com/c17hawke
+      link: https://github.com/Cryptonite-MIT
     - icon: fontawesome/brands/twitter
-      link: https://twitter.com/c17hawke
+      link: https://twitter.com/
     - icon: fontawesome/brands/linkedin
-      link: https://linkedin.com/in/c17hawke
+      link: https://linkedin.com/in/
     - icon: fontawesome/brands/instagram
-      link: https://www.instagram.com/c17hawke/
+      link: https://www.instagram.com/
 
 extra_javascript:
   - javascripts/mathjax.js
-  # - javascripts/tawk.js
   - https://polyfill.io/v3/polyfill.min.js #?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
@@ -71,4 +78,4 @@ plugins:
   - search
 
 copyright: |
-  &copy; 2022 <a href="https://github.com/c17hawke"  target="_blank" rel="noopener">Sunny Bhaveen Chandra</a>
+  &copy; 2022 <a href="https://github.com/Cryptonite-MIT"  target="_blank" rel="noopener">Cryptonite MIT</a>

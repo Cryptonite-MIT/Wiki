@@ -1,4 +1,17 @@
-# docsTemplate
-its just a template Repository for documentation
+# Cryptonite wiki website 
 
-Click on `Use this template` button on the top right to use this repository as a boiler plate for your next documentation
+This is the repo for the wiki page for cryptonite website made on mkdocs 
+
+This is the first command to run the bash script file
+
+The file will automatically install all the requirements 
+
+
+```bash init_setup.sh ```
+
+
+```mkdocs serve``` 
+to run locally
+
+```mkdocs build```
+to build the website
