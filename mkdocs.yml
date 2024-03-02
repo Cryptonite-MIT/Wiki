@@ -10,7 +10,7 @@ nav:
   - Attack Defense: attackDefense.md
   - Binary Exploitation: binexp.md
   - Reverse Engineering: reverse.md
-  - BitsCTF: bitsctf.md
+  - Writeups: bitsctf.md
 
 site_author: Daksh Dadhania
 site_description: >-
