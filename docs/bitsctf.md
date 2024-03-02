@@ -1,6 +1,6 @@
 # BITSCTF Writeups
 
-## - [Cryptography Challenges](/docs/Cryptography/crypto.md)
+### - [Cryptography Challenges](/docs/Cryptography/crypto.md)
 
 # Baby RSA
 ## Description
@@ -98,7 +98,7 @@ if not flag:
 
 
 
-## - [DFIR Challenges](/docs/dfir/dfir.md)
+### - [DFIR Challenges](/docs/dfir/dfir.md)
 
 # DFIR
 
@@ -404,7 +404,7 @@ we get the initial image
 Flag: `BITSCTF{1_r3c3ived_7h3_b0mbz}`
 
 
-## - [Forensics Challenges](/docs/forensics/forensics.md)
+### - [Forensics Challenges](/docs/forensics/forensics.md)
 
 ### CHALLENGE:
 rskbansal hacked into nasa mainframe and intercepted a radio signal from deep space along with a very SUS image. 
@@ -429,7 +429,7 @@ On using the enc.png file and enc_data.pkl along with the decode option in the h
 
 **FLAG: bitsctf{s73g4n06r4phy_15_n07_45_345y_45_17_533m5}**
 
-## - [Osint Challenges](/docs/osint/osint.md)
+### - [Osint Challenges](/docs/osint/osint.md)
 
 ### CHALLENGE:</br>
 Sir-Steals-A-Lot is a world famous art thief. Lately he stole this painting. When he was caught he claimed to have done it because the painting commemorates the location of the crowned glory of his lady love. They fell in love in her hometown but her grandfather wouldn't let her marry a thief like him.! 
@@ -453,7 +453,7 @@ It looks like we got the LadyLove's name. But the  flag requires the meaning of 
 **FLAG : BITSCTF{Queen}**
 
 
-## - [PWN Challenges](/docs/pwn/pwn.md)
+### - [PWN Challenges](/docs/pwn/pwn.md)
 
 # Mogambro's uncertainity principle
 
@@ -591,7 +591,7 @@ while True:
     # break
 ```
 
-## - [Rev Challenges](/docs/rev/rev.md)
+### - [Rev Challenges](/docs/rev/rev.md)
 
 # baby-rev
 
@@ -666,7 +666,7 @@ You can shake the phone. This changes the acceleration constantly and it is coun
 
 
 
-## - [Web Challenges](/docs/web/web.md)
+### - [Web Challenges](/docs/web/web.md)
 # Conquest
 
 Category: Web
@@ -839,7 +839,8 @@ We are then able to obtain the flag after logging in with the first set of crede
 
 Flag: `BITSCTF{5UB5Cr183r5_4r3_M0r3_7HAN_JU5T_C0N5UM3r5}`
 
-## - [MISC Challenges](/docs/dfir/misc.md)
+### - [MISC Challenges](/docs/dfir/misc.md)
+
 ## Sanity Check
 
 Flag found in the rules channel of the discord server
