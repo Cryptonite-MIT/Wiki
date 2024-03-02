@@ -1,9 +1,9 @@
-# BitsCTF Writeups 
+# BITSCTF Writeups
 
-# - Cryptography Challenges: cryptography/crypto.md
-# - DFIR Challenges: dfir/dfir.md
-# - Forensics Challenges: forensics/forensics.md
-# - Osint Challenges: osint/osint.md
-# - PWN Challenges: pwn/pwn.md
-# - Rev Challenges: rev/rev.md
-# - Web Challenges: web/web
+- [Cryptography Challenges](/docs/Cryptography/crypto.md)
+- [DFIR Challenges](/docs/dfir/dfir.md)
+- [Forensics Challenges](/docs/forensics/forensics.md)
+- [Osint Challenges](/docs/osint/osint.md)
+- [PWN Challenges](/docs/pwn/pwn.md)
+- [Rev Challenges](/docs/rev/rev.md)
+- [Web Challenges](/docs/web/web.md)
